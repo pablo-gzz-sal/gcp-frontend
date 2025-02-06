@@ -1,0 +1,111 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+  <div class="bg-white shadow-xl rounded-2xl p-8 max-w-md w-full">
+    <h2 class="text-2xl font-bold text-gray-800 text-center mb-6">Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700"
+          >Email</label
+        >
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+          [ngClass]="{ 'border-red-500': email?.invalid && email?.touched }"
+        />
+        @if (email?.invalid && email?.touched) {
+        <p class="text-red-500 text-sm">
+          Valid email is required
+        </p>
+        }
+      </div>
+
+      <div class="relative">
+        <label for="password" class="block text-sm font-medium text-gray-700"
+          >Password</label
+        >
+        <input
+          id="password"
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Enter your password"
+          class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
+          [ngClass]="{ 'border-red-500': password?.invalid && password?.touched }"
+        />
+
+        <button
+          type="button"
+          (click)="togglePassword()"
+          class="absolute inset-y-0 right-3 flex items-center text-gray-500"
+        >
+          @if (!showPassword) {
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 12m0 0A3 3 0 0112 15m3-3a3 3 0 00-3 3m0-6a3 3 0 013 3m-6 0a3 3 0 003-3m-3 3a3 3 0 00-3-3m6 0a3 3 0 00-3-3m-3 3a3 3 0 00-3 3m6 0a3 3 0 00-3-3m0 6a3 3 0 01-3-3m3 3a3 3 0 013-3m-6 0a3 3 0 013 3"
+            />
+          </svg>
+          } @if (showPassword) {
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13.875 18.825a10.05 10.05 0 01-7.05-7.05M3.5 12a10.05 10.05 0 017.05-7.05m9.95 0A10.05 10.05 0 0120.5 12m-3.575 3.575A10.05 10.05 0 0112 20.5m0 0a10.05 10.05 0 01-7.05-7.05m7.05 7.05a10.05 10.05 0 007.05-7.05"
+            />
+          </svg>
+          }
+        </button>
+
+        @if (password?.invalid && password?.touched) {
+        <p class="text-red-500 text-sm">
+          Password must be at least 6 characters
+        </p>
+        }
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white py-3 rounded-lg font-semibold flex items-center justify-center"
+        [disabled]="loginForm.invalid || loading"
+      >
+        @if (!loading) {
+        <span>Login</span>
+        } @if (loading) {
+        <svg class="animate-spin h-5 w-5 ml-2" viewBox="0 0 24 24">
+          <circle
+            class="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="white"
+            stroke-width="4"
+          ></circle>
+          <path
+            class="opacity-75"
+            fill="white"
+            d="M4 12a8 8 0 0116 0 8 8 0 01-16 0zm2 0a6 6 0 0112 0 6 6 0 01-12 0z"
+          ></path>
+        </svg>
+        }
+      </button>
+    </form>
+  </div>
+</div>
