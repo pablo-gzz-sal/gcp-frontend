@@ -16,9 +16,7 @@
           [ngClass]="{ 'border-red-500': email?.invalid && email?.touched }"
         />
         @if (email?.invalid && email?.touched) {
-        <p class="text-red-500 text-sm">
-          Valid email is required
-        </p>
+        <p class="text-red-500 text-sm">Valid email is required</p>
         }
       </div>
 
@@ -32,7 +30,9 @@
           formControlName="password"
           placeholder="Enter your password"
           class="w-full p-3 border rounded-lg focus:ring focus:ring-blue-300"
-          [ngClass]="{ 'border-red-500': password?.invalid && password?.touched }"
+          [ngClass]="{
+            'border-red-500': password?.invalid && password?.touched
+          }"
         />
 
         <button
@@ -43,33 +43,34 @@
           @if (!showPassword) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            fill="none"
+            class="h-6 w-6"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M15 12m0 0A3 3 0 0112 15m3-3a3 3 0 00-3 3m0-6a3 3 0 013 3m-6 0a3 3 0 003-3m-3 3a3 3 0 00-3-3m6 0a3 3 0 00-3-3m-3 3a3 3 0 00-3 3m6 0a3 3 0 00-3-3m0 6a3 3 0 01-3-3m3 3a3 3 0 013-3m-6 0a3 3 0 013 3"
+              d="M3 3l18 18M10.5 10.677a2 2 0 002.823 2.823M7.362 7.561A8 8 0 0112 6c4 0 7 3 9 6-1.825 2.737-4.34 5.16-7.438 5.878M9 6.75h0a8 8 0 00-5 5.25c.462.865 1 1.692 1.6 2.425"
             />
           </svg>
           } @if (showPassword) {
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            fill="none"
+            class="h-6 w-6"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M13.875 18.825a10.05 10.05 0 01-7.05-7.05M3.5 12a10.05 10.05 0 017.05-7.05m9.95 0A10.05 10.05 0 0120.5 12m-3.575 3.575A10.05 10.05 0 0112 20.5m0 0a10.05 10.05 0 01-7.05-7.05m7.05 7.05a10.05 10.05 0 007.05-7.05"
+              d="M12 6c-4 0-7 3-9 6 2 3 5 6 9 6s7-3 9-6c-2-3-5-6-9-6z"
             />
+            <circle cx="12" cy="12" r="3" stroke-width="2" />
           </svg>
           }
         </button>
@@ -107,5 +108,10 @@
         }
       </button>
     </form>
+    @if (errorMessage) {
+    <div class="text-red-500 text-sm mt-2">
+      {{ errorMessage }}
+    </div>
+    }
   </div>
 </div>

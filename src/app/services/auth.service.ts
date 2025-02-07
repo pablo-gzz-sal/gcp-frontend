@@ -42,10 +42,6 @@ export class AuthService {
     return this.authStatus.asObservable();
   }
 
-  getToken(): string | null {
-    return localStorage.getItem('token');
-  }
-
   private hasToken(): boolean {
     return !!localStorage.getItem('token');
   }

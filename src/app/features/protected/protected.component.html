@@ -1,6 +1,21 @@
-<div class="p-8">
-    <h2 class="text-3xl font-bold">Dashboard</h2>
-    <p class="mt-4">Protected Data: {{ protectedData }}</p>
-    <button (click)="logout()" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
+<div class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-8">
+  <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl">
+    <div class="p-8">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold text-gray-800">Dashboard</h2>
+        <button (click)="logout()" 
+          class="px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors duration-200 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          Logout
+        </button>
+      </div>
+      
+      <div class="bg-gray-50 rounded-xl p-6">
+        <h3 class="text-lg font-semibold text-gray-700 mb-4">Protected Data</h3>
+        <p class="text-gray-600">{{ protectedData }}</p>
+      </div>
+    </div>
   </div>
-  
+</div>

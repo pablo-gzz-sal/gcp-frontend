@@ -47,8 +47,10 @@ export class LoginComponent {
             this.router.navigate(["/protected"]);
           },
           error: (err) => {
-            this.errorMessage = 'Invalid email or password';
             this.loading = false;
+            this.errorMessage = err.status === 401 
+              ? 'Not authenticated. Please check your credentials.' 
+              : 'An error occurred during login';
           },
         });
     }
