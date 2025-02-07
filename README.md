@@ -2,26 +2,43 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.14.
 
-## Development server
+# Bot Calculator Frontend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Angular 18**
+- **Tailwind CSS**
+- **Angular HTTPClient** (for API communication)
+- **LocalStorage** (for storing authentication tokens)
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Navigate to the frontend directory:    
+    ### `cd gcp-fronted`
 
-## Running unit tests
+2. Install dependencies:
+    ###  `npm install`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Start the development server:
+    ###  `npm start`
 
-## Running end-to-end tests
+Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Authentication Process
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. The user logs in with email & password.
+2. The frontend sends a request to the backend.
+3. If successful, the backend returns a JWT token.
+4. The token is stored in localStorage.
+5. The user can now access protected routes.
+
+
+## Scripts
+
+###  `npm start`  Starts the development server.
+
+
+
